@@ -16,6 +16,20 @@ function addNewUser(newUser) {
     .catch(error => console.error(error));
 }
 
+function getUser(id) {
+  axios.get(`${url}/${id}`)
+    .then(response => {
+      const data = response.data;
+
+      userID.textContent = data.id;
+      userName.textContent = data.name;
+      userCity.textContent = data.city;
+      userAvatar.src = data.avatar;
+    })
+    .catch(error => console.error(error));
+}
+
+
 const newUser = {
   name: "Karen Tatiane",
   avatar: "https://thumbs.gfycat.com/FickleWaryBrocketdeer-size_restricted.gif",
@@ -23,6 +37,7 @@ const newUser = {
 
 }
 
-//addNewUser(newUser);
-
 getUsers();
+getUser(2);
+
+//addNewUser(newUser);

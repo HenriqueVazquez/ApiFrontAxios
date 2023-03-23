@@ -16,8 +16,8 @@ function addNewUser(newUser) {
     .catch(error => console.error(error));
 }
 
-function getUser(id) {
-  axios.get(`${url}/${id}`)
+function getUser(idUser) {
+  axios.get(`${url}/${idUser}`)
     .then(response => {
       const data = response.data;
 
@@ -29,6 +29,11 @@ function getUser(id) {
     .catch(error => console.error(error));
 }
 
+function updateUser(idUser, updatedUser) {
+  axios.put(`${url}/${idUser}`, updatedUser)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
+}
 
 const newUser = {
   name: "Karen Tatiane",
@@ -37,7 +42,15 @@ const newUser = {
 
 }
 
+const updatedUser = {
+  name: "Sophia Vazquez",
+  avatar: "https://i.pinimg.com/originals/5f/09/b3/5f09b35c6fc0ba3c97cd09538926c8b6.gif",
+  city: "São Paulo"
+}
+
+updateUser(3, updatedUser)
+
 getUsers();
-getUser(2);
+getUser(3);
 
 //addNewUser(newUser);

@@ -35,6 +35,13 @@ function updateUser(idUser, updatedUser) {
     .catch(error => console.error(error));
 }
 
+function deleteUser(idUser) {
+  axios.delete(`${url}/${idUser}`)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
+
+}
+
 const newUser = {
   name: "Karen Tatiane",
   avatar: "https://thumbs.gfycat.com/FickleWaryBrocketdeer-size_restricted.gif",
@@ -48,8 +55,9 @@ const updatedUser = {
   city: "São Paulo"
 }
 
-updateUser(3, updatedUser)
+//updateUser(3, updatedUser)
 
+deleteUser(5);
 getUsers();
 getUser(3);
 

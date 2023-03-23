@@ -11,7 +11,7 @@ function getUsers() {
 function addNewUser(newUser) {
   axios.post(url, newUser)
     .then(response => {
-      console.log(response);
+      alertAPI.textContent = JSON.stringify(response.data);
     })
     .catch(error => console.error(error));
 }
@@ -31,13 +31,13 @@ function getUser(idUser) {
 
 function updateUser(idUser, updatedUser) {
   axios.put(`${url}/${idUser}`, updatedUser)
-    .then(response => console.log(response))
+    .then(response => alertAPI.textContent = JSON.stringify(response.data))
     .catch(error => console.error(error));
 }
 
 function deleteUser(idUser) {
   axios.delete(`${url}/${idUser}`)
-    .then(response => console.log(response))
+    .then(response => alertAPI.textContent = JSON.stringify(response.data))
     .catch(error => console.error(error));
 
 }
@@ -57,7 +57,7 @@ const updatedUser = {
 
 //updateUser(3, updatedUser)
 
-deleteUser(5);
+//deleteUser(4);
 getUsers();
 getUser(3);
 
